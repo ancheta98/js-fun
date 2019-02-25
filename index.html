@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <!-- I put the jquery link in the head so it loads first -->
+    <!-- You want to include this before your custom script -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <!-- Instructions: 
+    User will press 'r', 'p', or 's' -->
+    <!-- Computer will pick a random letter -->
+    <!-- This app will compare the computer choice to what the user types -->
+    <!-- Best of 3 rounds -->
+    <!--  -->
+    <h1>Rock Paper Scissors</h1>
+    <p>Press p for paper</p>
+    <p>Press r for Rock</p>
+    <p>Press s for scissors</p>
+    <!-- this is where the user's score is kept track -->
+    <!-- +1 for every win -->
+    <h2>Score:</h2>
+
+    <script>
+      //whenever a user wins or loses we'll display an alert to notify them
+      //     $( document ).ready(function() {
+      //     console.log( "ready!" );
+      // });
+      //make sure to get the jQuery CDN
+      //include all my functions inside the document.ready
+      //reasoning: we want to only use our functions when the page loads
+      $(document).ready(function() {
+        //app will use this array to pick a random letter
+        var arr = ["r", "p", "s"]
+        //length of this arr = 3 but it only has indexes for 0,1,2
+
+        //functions we might need
+        //figure out how to keep track of what the user presses
+        //figure out how to keep track of what the computer presses
+        //compare user and computer choice
+        //first thing I thought of: want to see if I can see what the user types
+        //from google, similar to an onclick listener but the event is what the user is typing
+        //found onkeydown
+        $("body").keydown(function(event) {
+            //alert the user with what letter they pressed
+          console.log(event.key)
+        //   alert("You pressed the key "+ event.key);
+        
+
+        //when user types, computer should also take a guess
+        computerGuess()
+
+        });
+
+        //math.rand / math.floor
+        //array ?
+        //console.log it to check
+        function computerGuess(){
+            //use arr to pick random r, p, s choice
+            //this indicates an index in arr
+            var compGuess = Math.floor(Math.random() * (3 - 0))
+
+            alert("Here's what the computer did  " + arr[compGuess])
+            //arr[0] or arr[1] or arr[2]
+        }
+        
+
+
+       
+
+
+        //extra notes:
+        //this is for dynamically rendered elements
+        //basically always listening
+        //could have multiple of these
+        //Example: https://github.com/ancheta98/jquery-example
+        //$(document).on("img","click", function(){
+        // })
+        //vs this
+        //$('img').click(function(){
+        //})
+
+        //paramaters & arguments
+        // function myFunc(name){
+        //     console.log("hello ", name)
+        // }
+
+        // myFunc("Angel")
+
+        //commas and pluses make a difference
+        //   console.log(1 , 2)
+        //   console.log(1 + 2)
+      });
+    </script>
+  </body>
+</html>
